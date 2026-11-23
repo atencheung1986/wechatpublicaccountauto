@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>cover-photo-square</title>
+<!--
+  照片封面模板（1:1 方图，B 类个人叙事首选）
+  改这几处：
+   1) background-image 的 url → ../images/<你的照片>.jpg
+   2) background-size / background-position → 调到主体落在画面中部可见
+   3) kicker / 主标题 / 底部一行副标
+  ⚠️ .desc 是绝对定位，必须自带 text-align:center（不继承父级），否则贴左边缘。
+  渲染：bash scripts/render_cover.sh <ART>/diagrams/cover-photo-square.html
+-->
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body {
+    width:400px; height:400px; overflow:hidden;
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+    background:#0A1322;
+  }
+  .canvas { position:relative; width:400px; height:400px;
+    background-image:url('../images/{{PHOTO_FILE}}');
+    background-size:640px auto; background-position:34% 58.5%; }
+  .shade-top { position:absolute; left:0; right:0; top:0; height:190px;
+    background:linear-gradient(180deg, rgba(8,13,22,0.88) 0%, rgba(8,13,22,0.55) 55%, rgba(8,13,22,0) 100%); }
+  .shade-bottom { position:absolute; left:0; right:0; bottom:0; height:150px;
+    background:linear-gradient(0deg, rgba(8,13,22,0.88) 0%, rgba(8,13,22,0) 100%); }
+  .content { position:absolute; inset:0; z-index:2;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    padding:30px 22px 0; }
+  .kicker { font-size:13px; color:#9FB0C4; letter-spacing:0.30em; }
+  .title { margin-top:10px; font-size:44px; font-weight:800; color:#FFFFFF;
+    letter-spacing:0.04em; line-height:1.1; }
+  .title em { font-style:normal; color:#FF8A3D; }
+  .desc { position:absolute; left:0; right:0; bottom:40px; text-align:center;
+    font-size:16px; color:#E4E9EF; letter-spacing:0.05em; line-height:1.5; }
+  .desc b { font-weight:700; }
+  .underline { position:absolute; left:50%; transform:translateX(-50%); bottom:24px;
+    width:88px; height:4px; border-radius:3px;
+    background:linear-gradient(90deg,#FF8A3D,#FFC24B); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="shade-top"></div>
+  <div class="shade-bottom"></div>
+  <div class="content">
+    <div class="kicker">{{场景 · 时间}}</div>
+    <div class="title">{{四六}}<em>{{字主标题}}</em></div>
+  </div>
+  <div class="desc">{{一行副标，}}<b>{{后半加粗}}</b></div>
+  <div class="underline"></div>
+</div>
+</body>
+</html>

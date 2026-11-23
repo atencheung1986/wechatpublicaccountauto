@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>cover-feed-v2</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body {
+    width:900px; height:383px; overflow:hidden;
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+    background:#0A1322;
+  }
+  .canvas {
+    position:relative; width:900px; height:383px;
+    background:linear-gradient(135deg,#0A1322 0%,#101E33 55%,#18293F 100%);
+    display:flex; align-items:stretch;
+  }
+  .glow {
+    position:absolute; right:-90px; top:-130px; width:560px; height:560px;
+    background:radial-gradient(circle, rgba(255,138,61,0.30) 0%, rgba(255,138,61,0.10) 45%, rgba(255,138,61,0) 72%);
+    pointer-events:none;
+  }
+  .glow2 {
+    position:absolute; left:-150px; bottom:-200px; width:540px; height:540px;
+    background:radial-gradient(circle, rgba(47,111,237,0.22) 0%, rgba(47,111,237,0) 70%);
+    pointer-events:none;
+  }
+  .left {
+    flex:0 0 530px; display:flex; flex-direction:column; justify-content:center;
+    padding:0 0 0 52px; position:relative; z-index:2;
+  }
+  .kicker {
+    font-size:20px; color:#8FA0B5; letter-spacing:0.30em; margin-bottom:16px;
+  }
+  .title {
+    font-size:80px; font-weight:800; line-height:1.10; color:#FFFFFF; letter-spacing:0.04em;
+  }
+  .title em { font-style:normal; color:#FF8A3D; }
+  .desc {
+    margin-top:16px; font-size:24px; color:#C9D3DF; line-height:1.5; letter-spacing:0.03em;
+  }
+  .desc b { color:#FFFFFF; font-weight:700; }
+  .underline {
+    margin-top:14px; width:112px; height:5px; border-radius:4px;
+    background:linear-gradient(90deg,#FF8A3D,#FFC24B);
+  }
+  .tags { display:flex; gap:9px; margin-top:18px; }
+  .tag {
+    font-size:16px; color:#CBD5E1; padding:4px 12px;
+    border:1px solid rgba(203,213,225,0.28); border-radius:999px;
+    background:rgba(255,255,255,0.04); white-space:nowrap;
+  }
+  .right {
+    flex:1; display:flex; flex-direction:column; justify-content:center;
+    align-items:center; padding:0 40px 0 8px; position:relative; z-index:2;
+  }
+  .lead {
+    font-size:19px; color:#FFC24B; letter-spacing:0.16em; margin-bottom:6px;
+  }
+  .big {
+    font-size:150px; font-weight:800; color:#FFFFFF; line-height:1.0;
+    letter-spacing:0.02em;
+    text-shadow:0 0 46px rgba(255,138,61,0.35);
+  }
+  .sub {
+    margin-top:8px; font-size:16px; color:#8FA0B5; letter-spacing:0.08em;
+  }
+</style>
+</head>
+<body>
+<!-- 改这六处：kicker / 主标题(关键词套 em) / 副标 / 三个标签 / 巨大单字 / 英文小注。规范见 references/cover-style.md -->
+<div class="canvas">
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="left">
+    <div class="kicker">正经项目经理的</div>
+    <div class="title"><em>AI</em> 使用之道</div>
+    <div class="desc">不让它替你<b>写</b>，<br>让它替你<b>找</b></div>
+    <div class="underline"></div>
+    <div class="tags">
+      <span class="tag">会议 → 台账</span>
+      <span class="tag">变更 → 影响面</span>
+      <span class="tag">周报 → 风险信号</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="lead">一个字</div>
+    <div class="big">找</div>
+    <div class="sub">FIND, NOT WRITE</div>
+  </div>
+</div>
+</body>
+</html>
